@@ -1,0 +1,15 @@
+<h2>{{ hero.id ? 'Editar' : 'Añadir'}} Heroe</h2>
+<form [formGroup]="heroForm" (submit)="save()">
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Spiderman" formControlName="name" required appInputUppercase>
+      <mat-error *ngIf="heroForm.controls['name'].invalid">{{getErrorMessage(heroForm.controls['name'])}}</mat-error>
+
+    </mat-form-field>
+  </p>
+
+  <div class="text-right">
+    <button class="btn button-primary" type="submit" [disabled]="heroForm.invalid">Guardar</button>
+  </div>
+</form>
